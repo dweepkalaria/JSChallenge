@@ -1,0 +1,46 @@
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Search" ng-model="searchString">
+        </div>
+    </div>
+</form>
+<table id="myTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                <a href="" ng-click="sortColumn = 'id'; sortOrder = !sortOrder">Id
+                    <span ng-show="sortColumn == 'id' && !sortOrder" class="fa fa-caret-down"></span>
+                    <span ng-show="sortColumn == 'id' && sortOrder" class="fa fa-caret-up"></span>
+                </a>
+            </th>
+            <th>
+                <a href="" ng-click="sortColumn = 'userId'; sortOrder = !sortOrder">User
+                    <span ng-show="sortColumn == 'userId' && !sortOrder" class="fa fa-caret-down"></span>
+                    <span ng-show="sortColumn == 'userId' && sortOrder" class="fa fa-caret-up"></span>
+                </a>
+            </th>
+            <th>
+                <a href="" ng-click="sortColumn = 'title'; sortOrder = !sortOrder">Title
+                    <span ng-show="sortColumn == 'title' && !sortOrder" class="fa fa-caret-down"></span>
+                    <span ng-show="sortColumn == 'title' && sortOrder" class="fa fa-caret-up"></span>
+                </a>
+            </th>
+            <th>
+                <a href="" ng-click="sortColumn = 'body'; sortOrder = !sortOrder">Body
+                    <span ng-show="sortColumn == 'body' && !sortOrder" class="fa fa-caret-down"></span>
+                    <span ng-show="sortColumn == 'body' && sortOrder" class="fa fa-caret-up"></span>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in users | orderBy:sortColumn:sortOrder | filter:searchString">
+            <td>{{user.id}}</td>
+            <td>{{user.userId}}</td>
+            <td>{{user.title}}</td>
+            <td>{{user.body}}</td>
+        </tr>
+    </tbody>
+</table>
