@@ -3,10 +3,11 @@
 
 angular.module('testApp', [
     'ngRoute', 
-    'testApp.tableView'])
+    'testApp.table',
+    'testApp.services'])
 .config(['$routeProvider', function($routeProvider) {
 
-  $routeProvider.otherwise({redirectTo: '/tableView'});
+  $routeProvider.otherwise({redirectTo: '/table'});
   
 }]);
 
